@@ -8,6 +8,13 @@ def load_students(filename):
         a = csv.DictReader(f)
         return list(a)
 
+def save_students(filename, students):
+    with open(filename, "w", encoding="utf-8", newline="") as f:
+        fieldnames = ["name", "grade", "class"]
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(students)
+
 def add_student(filename, name, grade, class_name):
     with open(filename, "a", encoding="utf-8", newline="") as f:
         c = csv.writer(f)
