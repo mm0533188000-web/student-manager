@@ -18,8 +18,22 @@ def find_student(students, name):
         if name1.get("name") == name:
             return name1
     else:
-        return None  # ה-else הזה חייב להיות מיושר עם ה-for
+        return None  
+
+def class_average(students, class_name):
+    suni=0
+    how=0
+    for average in students:
+        if average.get("class") == class_name:
+            suni+=int(average.get("grade"))
+            how+=1
+    
+            if how == 0:
+                return how
+    return  suni / how
+
 
 n = load_students("students.csv")
-a = find_student(n, "Noa")
+# a = find_student(n, "Noa")
+a=class_average(n,"10A")
 print(a)
