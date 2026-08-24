@@ -55,8 +55,8 @@ def ptint_all(students, filename):
     print(all_name)
     
     while True:
-        nenu = int(input("to see all enter 1: \nto add enter 2:\nto find enter 3:\nto class average enter 4:\nto top student enter 5: \nto save and exit enter 6: "))
-        if nenu > 6 or nenu < 1:
+        nenu = int(input("to see all enter 1: \nto add enter 2:\nto find enter 3:\nto class average enter 4:\nto top student enter 5: \nto save and exit enter 6 \nto delete a student enter 7: "))
+        if nenu > 7 or nenu < 1:
             print("the number is error try agein😒")
         if nenu == 1:
             for s in students:
@@ -84,11 +84,21 @@ def ptint_all(students, filename):
             
         elif nenu == 5:
             print(top_student(students))
-            
-        elif nenu == 6:
-            save_students(filename, students)
-            return "Saved and exiting👌"
 
+        elif nenu == 7:
+            name_of_delete = input("Enter the name of the student to delete: ")
+            students = delete_student(students, name_of_delete)
+            save_students(filename, students)
+            print("Student deleted and saved successfully!🗑️")
+
+        elif nenu == 6:
+                    save_students(filename, students)
+                    return "Saved and exiting👌"
+
+def delete_student(students,name):
+    new=[i for i in students if i.get("name") != name]
+    return new
+            
 
 file_name = "students.csv"
 a = load_students(file_name)
