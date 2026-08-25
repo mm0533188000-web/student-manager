@@ -1,37 +1,15 @@
-<!-- Step 1: Load Students (load_students)
+# Student Manager System
 
-Checks if the CSV file exists using the os module.
+A Python-based student management system developed as a final project. The system manages data using a CSV file and allows users to perform various operations through a command-line interface (CLI).
 
-Reads student records using csv.DictReader into a list of dictionaries, or returns an empty list if the file is missing.
+## Features
+- **Data Loading:** Reads all student records from the CSV file using `DictReader`.
+- **Data Saving:** Saves and updates data cleanly back to the file with appropriate headers.
+- **Add Students:** Collects new student details (name, grade, and class) with validation to ensure the grade is strictly between 0 and 100.
+- **Find Student:** Allows searching for a specific student by name to retrieve their full details.
+- **Calculations:** Calculates class grade averages and identifies the top-performing student with the highest grade.
+- **Interactive Menu:** Features a user-friendly main menu to view all data, add, search, delete, generate text reports, and save upon exiting.
+- **Error Handling:** Prevents program crashes in case the user inputs invalid values (such as text instead of a numeric grade).
 
-Step 2: Save Students (save_students)
-
-Opens the CSV file in write mode ("w") with utf-8 encoding.
-
-Uses csv.DictWriter with defined fieldnames (name, grade, class), writes the header first, and saves all current student records back to the file.
-
-Step 3: Add Student (add_student)
-
-Collects student details (name, grade, and class) via interactive terminal inputs.
-
-Validates that the entered grade is strictly between 0 and 100 using a validation loop.
-
-Appends the new student dictionary to the list, updates the CSV file, and confirms successful saving.
-
-Step 4: Find Student (find_student)
-
-Searches through the student list by name.
-
-Returns the matching student dictionary if found, or None otherwise.
-
-Step 5: Class Average & Top Student (class_average & top_student)
-
-Class Average: Filters students by a specific class name, sums their grades, and calculates the average score.
-
-Top Student: Iterates through the student records to find and return the name of the student with the highest grade.
-
-Step 6: Interactive Menu & Exit (print_all)
-
-Implements a while True loop presenting a command-line interface with options ranging from 1 to 6 (viewing, adding, searching, calculating averages, finding the top student, and saving and exiting).
-
-Safely breaks the loop and exits the program upon choosing option 6. -->
+## Project Structure
+The project is fully managed using Git version control, where every step was developed, tested, and pushed in separate commits to GitHub.

@@ -65,10 +65,13 @@ def ptint_all(students, filename):
         elif nenu == 2:
             name = input("Enter the name: ")
             while True:
-                grade = int(input("Enter the grade: "))
-                if grade <= 100 and grade >= 0:
-                    break
-                print("the grade is error try agein")
+                try:
+                    grade = int(input("Enter the grade: "))
+                    if grade <= 100 and grade >= 0:
+                        break
+                    print("the grade is error try agein")
+                except ValueError:
+                    print("the grade is error try agein")
             class_name = input("Enter the class: ")
             add_student(students, name, grade, class_name)
             save_students(filename, students)
@@ -118,5 +121,3 @@ file_name = "students.csv"
 a = load_students(file_name)
 b = ptint_all(a, file_name)
 print(b)
-# v=report_to_txt(a)
-# print(v)
