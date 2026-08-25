@@ -55,8 +55,8 @@ def ptint_all(students, filename):
     print(all_name)
     
     while True:
-        nenu = int(input("to see all enter 1: \nto add enter 2:\nto find enter 3:\nto class average enter 4:\nto top student enter 5: \nto save and exit enter 6 \nto delete a student enter 7: "))
-        if nenu > 7 or nenu < 1:
+        nenu = int(input("to see all enter 1: \nto add enter 2:\nto find enter 3:\nto class average enter 4:\nto top student enter 5: \nto save and exit enter 6 \nto delete a student enter 7 \nto save file txt enter 8: "))
+        if nenu > 8 or nenu < 1:
             print("the number is error try agein😒")
         if nenu == 1:
             for s in students:
@@ -91,6 +91,9 @@ def ptint_all(students, filename):
             save_students(filename, students)
             print("Student deleted and saved successfully!🗑️")
 
+        elif nenu == 8:
+            report_to_txt(students)
+            print("the text file was created successfully")
         elif nenu == 6:
                     save_students(filename, students)
                     return "Saved and exiting👌"
@@ -99,8 +102,21 @@ def delete_student(students,name):
     new=[i for i in students if i.get("name") != name]
     return new
             
+def report_to_txt (students):
+    if not students:
+        return
+    how=len(students)
+    avg = sum(int(s["grade"]) for s in students) / how
+    with open("report.txt" ,"w",encoding="utf-8")as f:
+        f.write(f"\n the top studen is {top_student(students)}")
+        f.write(f"\n the average form the student is {avg}")
+        f.write(f"\n how match student {how}")
+    return ("the text file was created successfully")
 
+            
 file_name = "students.csv"
 a = load_students(file_name)
 b = ptint_all(a, file_name)
 print(b)
+# v=report_to_txt(a)
+# print(v)
